@@ -12,11 +12,14 @@ export const store = new Vuex.Store({
     stringCounter: s => `${s.counter} clicks!`
   },
   mutations: {
-    increment: s => s.counter++,
+    increment: (s, p) => {
+      isNaN(p) ? s.counter++ : (s.counter += p);
+    },
     decrement: s => s.counter--
   },
   actions: {
-    asyncIncrement: c => setTimeout(() => c.commit('increment'), 1000),
+    asyncIncrement: (c, { payload, time }) =>
+      setTimeout(() => c.commit('increment', payload), time),
     asyncDecrement: c => setTimeout(() => c.commit('decrement'), 1000)
   }
 });

@@ -1,7 +1,10 @@
 <template>
   <div>
-    <button class="btn btn-primary" @click="asyncIncrement">
-      Async Increment
+    <button
+      class="btn btn-primary"
+      @click="asyncIncrement({ payload: 100, time: 500 })"
+    >
+      Async Increment by 100
     </button>
     <button class="btn btn-primary" @click="asyncDecrement">
       Async Decrement
