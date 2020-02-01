@@ -14,5 +14,9 @@ export const store = new Vuex.Store({
   mutations: {
     increment: s => s.counter++,
     decrement: s => s.counter--
+  },
+  actions: {
+    asyncIncrement: c => setTimeout(() => c.commit('increment'), 1000),
+    asyncDecrement: c => setTimeout(() => c.commit('decrement'), 1000)
   }
 });
